@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import type {ContentCollectionItem} from '@nuxt/content';
-
 definePageMeta({
   layout: 'archive'
 })
 
-const {data, pending} = await useAsyncData(async () => {
-  return await queryCollection('media')
-    .where('parent', '=', 'blog')
+const {data, status} = await useAsyncData('blog', async () => {
+  return queryCollection('blog')
     .order('date', 'DESC')
     .all()
 })
@@ -41,10 +38,10 @@ const parseDate = (date: string) => {
       follow that way.
     </p>
 
-    <section v-if="!pending">
-      <article v-for="post in data" :key="post.slug" class="not-prose my-8 p-4 bg-secondary-100/25 rounded-lg">
-        <NuxtLink :to="`/blog/${pathToBlog(post._path)}`">
-          <p class="text-text-800/75">{{ parseDate(post.date) }}</p>
+    <section v-if="status !== 'pending'">
+      <article v-for="post in data" :key="post.id" class="not-prose my-8 p-4 bg-secondary-100/25 rounded-lg">
+        <NuxtLink :to="`/blog/${pathToBlog(post.path)}`">
+          <!-- <p class="text-text-800/75">{{ parseDate(post.date.toString()) }}</p> -->
           <h2 class="text-xl font-semibold">{{ post.title }}</h2>
           <p>{{ post.description }}</p>
           <p>Read more...</p>

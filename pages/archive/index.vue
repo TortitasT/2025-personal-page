@@ -13,6 +13,6 @@ definePageMeta({
       </p>
     </header>
 
-    <ArchiveNavigation />
+    <ArchiveNavigation from="media" />
   </div>
 </template>

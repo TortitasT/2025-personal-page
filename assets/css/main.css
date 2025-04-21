@@ -150,3 +150,46 @@ button:hover {
 .social svg {
   @apply w-6 h-6;
 }
+
+.back:hover .back__path {
+  @apply md:opacity-100 md:translate-x-4;
+}
+
+/* MENU */
+.menu-item {
+  @apply px-6 py-2 rounded-full font-semibold flex items-center gap-2 md:hover:bg-secondary-200 transition-colors;
+}
+
+/* .menu-item.router-link-active {
+  @apply bg-secondary-300 text-background-950;
+} */
+
+.menu-item.router-link-active {
+  @apply text-background-950;
+}
+
+.menu-item>svg,
+.menu-item>span {
+  @apply z-40;
+}
+
+.selected {
+  @apply bg-secondary-300 rounded-full absolute left-3 top-2 bottom-2 transition-transform;
+  @apply z-30 hidden;
+}
+
+.nav:has(a.router-link-active[href="/"]) .selected {
+  @apply block w-[64px] translate-x-0 md:w-[116px] md:translate-x-0;
+}
+
+.nav:has(a.router-link-active[href="/about"]) .selected {
+  @apply block w-[64px] translate-x-[80px] md:w-[117.06px] md:translate-x-[132px];
+}
+
+.nav:has(a.router-link-active[href="/blog"]) .selected {
+  @apply block w-[64px] translate-x-[160px] md:w-[105.05px] md:translate-x-[265px];
+}
+
+.nav:has(a.router-link-active[href="/archive"]) .selected {
+  @apply block w-[64px] translate-x-[240px] md:w-[126.04px] md:translate-x-[386px];
+}

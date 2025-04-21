@@ -9,8 +9,18 @@ useSeoMeta({
 const experience: Experience[] = [];
 
 experience.push({
+  title: "🦉 Senior Vue.js Frontend Developer",
+  date: "2025 - Present",
+  company: {
+    name: "Cycloid.io",
+    link: "https://cycloid.io/",
+  },
+  description: `I fix stuff`,
+});
+
+experience.push({
   title: "👨🏻‍💼 Software engineer",
-  date: "2024 - Present",
+  date: "2024 - 2025",
   company: {
     name: "Minsait",
     link: "https://www.indracompany.com/minsait",
@@ -52,11 +62,16 @@ experience.push({
       websites and mobile apps to <a target="_blank" href="https://tortitas.itch.io/">video games</a>.
     </p>
 
+    <!-- <p> -->
+    <!--   I'm currently working as a Software Engineer at <a href="https://www.indracompany.com/minsait" -->
+    <!--     target="_blank">Minsait</a>, -->
+    <!--   where I help develop the next generation of POS systems for the hospitality industry with a focus on UX/UI -->
+    <!--   design. -->
+    <!-- </p> -->
+
     <p>
-      I'm currently working as a Software Engineer at <a href="https://www.indracompany.com/minsait"
-        target="_blank">Minsait</a>,
-      where I help develop the next generation of POS systems for the hospitality industry with a focus on UX/UI
-      design.
+      I'm currently working as a Senior Vue.js Frontend Developer at <a href="https://cycloid.io/"
+        target="_blank">Cycloid</a>, where I help develop the next generation of DevOps tools.
     </p>
   </section>
   <section class="my-8">

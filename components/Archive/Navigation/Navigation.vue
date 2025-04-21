@@ -1,17 +1,15 @@
 <script setup lang="ts">
-const { from } = withDefaults(
-  defineProps<{ from: string }>(),
-  {
-    from: 'archive',
-  });
+const props = defineProps<{ from: 'media' | 'blog' }>();
 
-const query = queryContent(from);
+const { data, status } = await useAsyncData(async () => {
+  return queryCollectionNavigation(props.from)
+})
 </script>
 
 <template>
-  <ContentNavigation v-slot="{ navigation }" :query="query">
+  <div v-if="status === 'success' && data" class="prose max-w-none">
     <ul>
-      <ArchiveNavigationItem v-for="link of navigation" :key="link._path" :link="link" />
+      <ArchiveNavigationItem v-for="link of data" :key="link.path" :link="link" />
     </ul>
-  </ContentNavigation>
+  </div>
 </template>
