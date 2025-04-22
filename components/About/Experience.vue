@@ -1,19 +1,19 @@
 <script setup lang="ts">
 export interface ExperienceCompany {
-  name: string;
-  link: string;
+  name: string
+  link: string
 }
 
 export interface Experience {
-  title: string;
-  date: string;
-  company: ExperienceCompany;
-  description: string[] | string;
+  title: string
+  date: string
+  company: ExperienceCompany
+  description: string[] | string
 }
 
 const { value } = defineProps<{
-  value: Experience;
-}>();
+  value: Experience
+}>()
 </script>
 
 <template>
@@ -30,13 +30,19 @@ const { value } = defineProps<{
 
     <div class="prose max-w-none">
       <small class="text-sm ml-5">
-        at <a :href="value.company.link" target="_blank">{{ value.company.name }}</a>
+        at <a
+          :href="value.company.link"
+          target="_blank"
+        >{{ value.company.name }}</a>
       </small>
 
       <p v-if="Array.isArray(value.description)">
-        <template v-for="(desc, index) in value.description">
+        <template
+          v-for="(desc, index) in value.description"
+          :key="index"
+        >
           <span v-html="desc" />
-          <br v-if="index < value.description.length - 1" />
+          <br v-if="index < value.description.length - 1">
         </template>
       </p>
 

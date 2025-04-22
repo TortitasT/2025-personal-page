@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { parseDate } from '~/lib/utils'
+
 definePageMeta({
   layout: 'archive',
 })
@@ -15,23 +17,28 @@ const { data, status } = await useAsyncData(async () => {
 if (status.value === 'error') {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page Not Found'
+    statusMessage: 'Page Not Found',
   })
 }
 </script>
 
 <template>
-  <ArchiveBack></ArchiveBack>
+  <div>
+    <ArchiveBack />
 
-  <div class="prose max-w-none" v-if="status === 'success' && data">
-    <small v-if="data?.date">
-      {{ data.date }}
-    </small>
+    <div
+      v-if="status === 'success' && data"
+      class="prose max-w-none"
+    >
+      <small v-if="data?.date">
+        {{ parseDate(data.date.toString()) }}
+      </small>
 
-    <h1>
-      {{ data?.title }}
-    </h1>
+      <h1>
+        {{ data?.title }}
+      </h1>
 
-    <ContentRenderer :value="data" />
+      <ContentRenderer :value="data" />
+    </div>
   </div>
 </template>

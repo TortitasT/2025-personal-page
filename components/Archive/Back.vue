@@ -11,7 +11,10 @@ const previousRoutePretty = computed(() => {
 </script>
 
 <template>
-  <NuxtLink :to="previousRoute" class="back flex items-center gap-2 text-text-700 mb-4">
+  <NuxtLink
+    :to="previousRoute"
+    class="back flex items-center gap-2 text-text-700 mb-4"
+  >
     <span>
       ←
     </span>

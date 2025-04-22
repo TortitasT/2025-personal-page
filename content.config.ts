@@ -9,7 +9,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         date: z.date(),
-      })
+      }),
     }),
 
     media: defineCollection({
@@ -17,6 +17,10 @@ export default defineContentConfig({
         include: '**/*.md',
       },
       type: 'page',
+      schema: z.object({
+        title: z.string().optional(),
+        date: z.date().optional(),
+      }),
     }),
-  }
+  },
 })

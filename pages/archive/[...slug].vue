@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { parseDate } from '~/lib/utils'
+
 definePageMeta({
   layout: 'archive',
 })
@@ -15,23 +17,38 @@ const { data, status } = await useAsyncData(async () => {
 </script>
 
 <template>
-  <ArchiveBack></ArchiveBack>
+  <div>
+    <ArchiveBack />
 
-  <div class="box-content">
-    <div class="prose max-w-none" v-if="status === 'success' && data">
-      <small v-if="data.date">
-        {{ data.date }}
-      </small>
+    <div class="box-content">
+      <div
+        v-if="status === 'success'"
+        class="prose max-w-none"
+      >
+        <small v-if="data && data.date">
+          {{ parseDate(data.date.toString()) }}
+        </small>
 
-      <h1 v-if="data.title">
-        {{ data.title }}
-      </h1>
-      <h1 v-else class="break-all">
-        {{ $route.path }}
-      </h1>
+        <h1 v-if="data && data.title">
+          {{ data.title }}
+        </h1>
+        <h1
+          v-else
+          class="break-all"
+        >
+          {{ $route.path }}
+        </h1>
 
-      <ContentRenderer v-if="data" :value="data" />
-      <ArchiveNavigation v-else :from="$route.path.split('/')[0]" />
+        <ContentRenderer
+          v-if="data"
+          :value="data"
+        />
+        <ArchiveNavigation
+          v-else
+          from="media"
+          :path="$route.path.split('archive/')[1]"
+        />
+      </div>
     </div>
   </div>
 </template>

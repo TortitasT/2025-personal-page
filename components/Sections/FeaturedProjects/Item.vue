@@ -3,8 +3,7 @@
     <header class="grid grid-cols-2 gap-2">
       <h3 class="flex justify-start items-center">
         <span class="text-2xl relative">
-          <div class="bg-accent-200 w-full h-1 absolute bottom-1 ml-2 -rotate-2">
-          </div>
+          <div class="bg-accent-200 w-full h-1 absolute bottom-1 ml-2 -rotate-2" />
 
           <span class="relative ml-4">
             {{ props.project.name }}
@@ -12,7 +11,10 @@
         </span>
       </h3>
 
-      <SectionsLink :href="props.project.link" class="flex justify-end items-center text-sm">
+      <SectionsLink
+        :href="props.project.link"
+        class="flex justify-end items-center text-sm"
+      >
         Read more
       </SectionsLink>
 
@@ -24,19 +26,19 @@
 </template>
 
 <script lang="ts" setup>
-import type { Project } from '~/utils/types';
+import type { Project } from '~/utils/types'
 
 const props = defineProps<{
-  project: Project,
-}>();
+  project: Project
+}>()
 
-const colorMode = useColorMode();
+// const colorMode = useColorMode()
 
-const logo = computed(() => {
-  if (typeof props.project.logo === 'string') {
-    return props.project.logo;
-  }
-
-  return props.project.logo[colorMode.value === 'dark' ? 'dark' : 'light'];
-});
+// const logo = computed(() => {
+//   if (typeof props.project.logo === 'string') {
+//     return props.project.logo
+//   }
+//
+//   return props.project.logo[colorMode.value === 'dark' ? 'dark' : 'light']
+// })
 </script>

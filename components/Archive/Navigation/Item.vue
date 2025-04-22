@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { link } = defineProps<{ link: any }>();
+const { link } = defineProps<{ link: any }>()
 
 const pathToArchive = (path: string | undefined) => {
   if (!path) return ''
@@ -13,7 +13,11 @@ const pathToArchive = (path: string | undefined) => {
   <li>
     <NuxtLink :to="pathToArchive(link.path)">{{ link.title }}</NuxtLink>
     <ul v-if="link.children">
-      <ArchiveNavigationItem v-for="child of link.children" :key="child.path" :link="child" />
+      <ArchiveNavigationItem
+        v-for="child of link.children"
+        :key="child.path"
+        :link="child"
+      />
     </ul>
   </li>
 </template>

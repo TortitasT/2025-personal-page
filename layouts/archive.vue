@@ -6,13 +6,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <Background></Background>
+  <div>
+    <Background />
 
-  <div class="px-2 max-w-screen-md mx-auto">
-    <main class="min-h-[calc(100dvh_-_75px)] px-2 py-6">
-      <slot></slot>
-    </main>
-    <Menu></Menu>
-    <Footer></Footer>
+    <div class="px-2 max-w-screen-md mx-auto">
+      <main class="min-h-[calc(100dvh_-_75px)] px-2 py-6">
+        <slot />
+      </main>
+      <Menu />
+      <Footer />
+    </div>
   </div>
 </template>

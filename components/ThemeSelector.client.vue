@@ -1,5 +1,8 @@
 <template>
-  <button @click="colorMode.preference = contraryColorModeValue" class="w-12 h-12">
+  <button
+    class="w-12 h-12"
+    @click="colorMode.preference = contraryColorModeValue"
+  >
     <span class="block -translate-y-[1px]">
       {{ currentColorModeEmoji }}
     </span>

@@ -19,6 +19,6 @@ onUnmounted(() => {
 <template>
   <div
     class="absolute -z-10 inset-[-200%] h-[400%] w-[400%] bg-[url('/images/framernoise.png')] bg-[length:256px] bg-left-top opacity-[3%]"
-    :style="style">
-  </div>
+    :style="style"
+  />
 </template>
